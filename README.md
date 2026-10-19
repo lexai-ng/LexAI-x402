@@ -1,5 +1,8 @@
 # LexAI x402 Demo API
 
+“The x402 demo server is in index.js.”
+
+
 **DEMO ONLY — not real payment enforcement or production-ready paid access.**
 The server accepts any nonempty `x-payment` header. It does not verify signatures,
 transactions, token transfers, or payments on-chain. Do not send money to test it.
