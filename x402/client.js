@@ -6,7 +6,7 @@ import { ExactSvmScheme } from "@x402/svm/exact/client";
 const secret = process.env.SOLANA_PRIVATE_KEY;
 if (!secret) throw new Error("Set SOLANA_PRIVATE_KEY in Secrets");
 
-const signer = await createKeyPairSignerFromBytes(base58.decode(secret));
+const signer = await createKeyPairSignerFromBytes(base58.decode(secret.replace(/\s+/g, "")));
 const client = new x402Client();
 
 client.registerPolicy((_version, requirements) =>
@@ -28,4 +28,4 @@ if (!response.ok) {
 }
 
 console.log(await response.json());
-console.log("Receipt:", response.headers.get("PAYMENT-RESPONSE"));
+console.log("Receipt:", JSON.parse(Buffer.from(response.headers.get("PAYMENT-RESPONSE"), "base64").toString()));

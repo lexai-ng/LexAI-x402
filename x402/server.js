@@ -4,8 +4,8 @@ import { paymentMiddleware, x402ResourceServer } from "@x402/express";
 import { ExactSvmScheme } from "@x402/svm/exact/server";
 
 const network = "solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1";
-const payTo = process.env.SOLANA_PAY_TO;
-const facilitatorUrl = process.env.FACILITATOR_URL;
+const payTo = process.env.SOLANA_PAY_TO?.trim();
+const facilitatorUrl = process.env.FACILITATOR_URL?.trim();
 
 if (!payTo || !facilitatorUrl) {
   throw new Error("Set SOLANA_PAY_TO and FACILITATOR_URL in Secrets");
