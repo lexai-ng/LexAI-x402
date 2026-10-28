@@ -3,12 +3,17 @@ import { createKeyPairSignerFromBytes } from "@solana/kit";
 import { x402Client, wrapFetchWithPayment } from "@x402/fetch";
 import { ExactSvmScheme } from "@x402/svm/exact/client";
 
-const secret = process.env.SOLANA_PRIVATE_KEY;
-if (!secret) throw new Error("Set SOLANA_PRIVATE_KEY in Secrets");
+const query = process.argv.slice(2).join(" ").trim() || "negligence";
+const secret = process.env.SOLANA_PRIVATE_KEY?.replace(/\s+/g, "");
+if (!secret) {
+  console.error("SOLANA_PRIVATE_KEY is not set in Secrets.");
+  process.exit(1);
+}
 
-const signer = await createKeyPairSignerFromBytes(base58.decode(secret.replace(/\s+/g, "")));
+const signer = await createKeyPairSignerFromBytes(base58.decode(secret));
 const client = new x402Client();
 
+// Spend control: only devnet USDC, at most 0.01 USDC per request
 client.registerPolicy((_version, requirements) =>
   requirements.filter(
     ({ network, asset, amount }) =>
@@ -20,12 +25,33 @@ client.registerPolicy((_version, requirements) =>
 client.register("solana:*", new ExactSvmScheme(signer));
 
 const fetchWithPayment = wrapFetchWithPayment(fetch, client);
-const response = await fetchWithPayment("http://127.0.0.1:4021/search");
+const url = `http://127.0.0.1:4021/search?q=${encodeURIComponent(query)}`;
 
-if (!response.ok) {
-  console.error(`Payment or request failed with status ${response.status}`);
+let response;
+try {
+  response = await fetchWithPayment(url);
+} catch (err) {
+  console.error("Payment could not be completed:", err.message);
+  console.error("Check: the server is running, the payer wallet has devnet USDC, and the facilitator is reachable.");
   process.exit(1);
 }
 
-console.log(await response.json());
-console.log("Receipt:", JSON.parse(Buffer.from(response.headers.get("PAYMENT-RESPONSE"), "base64").toString()));
+if (!response.ok) {
+  console.error(`Request failed with status ${response.status}`);
+  console.error(await response.text());
+  process.exit(1);
+}
+
+const data = await response.json();
+console.log(`Query: "${data.query}" - ${data.count} result(s)`);
+for (const c of data.results) {
+  console.log(`\n${c.name} (${c.court}, ${c.year})\n  ${c.principle}`);
+}
+
+const header = response.headers.get("PAYMENT-RESPONSE");
+if (header) {
+  const receipt = JSON.parse(Buffer.from(header, "base64").toString());
+  console.log("\nPaid 0.001 USDC on Solana devnet");
+  console.log("Transaction:", receipt.transaction);
+  console.log(`Explorer: https://explorer.solana.com/tx/${receipt.transaction}?cluster=devnet`);
+}

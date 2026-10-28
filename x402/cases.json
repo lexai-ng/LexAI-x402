@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Donoghue v Stevenson",
+    "court": "House of Lords (UK)",
+    "year": 1932,
+    "citation": "[1932] AC 562",
+    "topic": "Tort: negligence",
+    "tags": ["negligence", "duty of care", "neighbour principle", "tort", "product liability"],
+    "principle": "A person owes a duty to take reasonable care to avoid acts or omissions that could reasonably be foreseen to injure their 'neighbour'.",
+    "summary": "A manufacturer owed a duty of care to the ultimate consumer of a bottled drink containing a decomposed snail."
+  },
+  {
+    "name": "Overseas Tankship (UK) Ltd v Morts Dock (The Wagon Mound No 1)",
+    "court": "Privy Council (on appeal from New South Wales)",
+    "year": 1961,
+    "citation": "[1961] AC 388",
+    "topic": "Tort: remoteness of damage",
+    "tags": ["negligence", "remoteness", "foreseeability", "damages", "tort"],
+    "principle": "A defendant is liable in negligence only for damage of a kind that was reasonably foreseeable.",
+    "summary": "Oil spilled in Sydney Harbour later ignited; the fire damage was held too remote because it was not reasonably foreseeable."
+  },
+  {
+    "name": "Carlill v Carbolic Smoke Ball Co",
+    "court": "Court of Appeal (England)",
+    "year": 1893,
+    "citation": "[1893] 1 QB 256",
+    "topic": "Contract: offer and acceptance",
+    "tags": ["contract", "offer", "acceptance", "unilateral contract", "advertisement"],
+    "principle": "An advertisement can be a unilateral offer to the world, accepted by performing its conditions.",
+    "summary": "A company that advertised a reward and deposited money to show sincerity was bound to pay a user who caught influenza."
+  },
+  {
+    "name": "Hadley v Baxendale",
+    "court": "Court of Exchequer (England)",
+    "year": 1854,
+    "citation": "(1854) 9 Exch 341",
+    "topic": "Contract: damages",
+    "tags": ["contract", "damages", "remoteness", "breach", "consequential loss"],
+    "principle": "Damages for breach of contract cover losses arising naturally from the breach or reasonably in the contemplation of both parties when contracting.",
+    "summary": "A carrier delayed delivering a broken mill shaft; the mill owner's lost profits were too remote to recover."
+  },
+  {
+    "name": "Salomon v A Salomon & Co Ltd",
+    "court": "House of Lords (UK)",
+    "year": 1897,
+    "citation": "[1897] AC 22",
+    "topic": "Company law: separate legal personality",
+    "tags": ["company", "corporate personality", "limited liability", "shareholder", "veil"],
+    "principle": "A properly incorporated company is a legal person separate from its shareholders, who are not liable for its debts.",
+    "summary": "Mr Salomon was not personally liable for the debts of his one-man company, which had been validly incorporated."
+  },
+  {
+    "name": "Rylands v Fletcher",
+    "court": "House of Lords (UK)",
+    "year": 1868,
+    "citation": "(1868) LR 3 HL 330",
+    "topic": "Tort: strict liability",
+    "tags": ["tort", "strict liability", "nuisance", "escape", "land"],
+    "principle": "A person who brings onto land and keeps there something likely to do mischief if it escapes is answerable for the damage caused by its escape.",
+    "summary": "Water from a reservoir flooded a neighbour's mine; the landowner was liable although he was not negligent."
+  },
+  {
+    "name": "Ukeje v Ukeje",
+    "court": "Supreme Court of Nigeria",
+    "year": 2014,
+    "citation": "Supreme Court of Nigeria (2014); confirm the law report citation",
+    "topic": "Family and customary law: inheritance",
+    "tags": ["customary law", "inheritance", "discrimination", "constitution", "female child", "igbo"],
+    "principle": "A customary law denying a female child a share in her late father's estate is discriminatory and unconstitutional.",
+    "summary": "The Supreme Court held that Igbo customary law excluding daughters from inheritance conflicts with the constitutional right to freedom from discrimination."
+  },
+  {
+    "name": "Mojekwu v Mojekwu",
+    "court": "Court of Appeal (Nigeria)",
+    "year": 1997,
+    "citation": "(1997) 7 NWLR (Pt 512) 283; confirm before relying",
+    "topic": "Family and customary law: inheritance",
+    "tags": ["customary law", "inheritance", "discrimination", "repugnancy", "oli-ekpe", "igbo"],
+    "principle": "A custom that is discriminatory and contrary to natural justice, equity and good conscience will not be enforced.",
+    "summary": "The Court of Appeal refused to enforce the Nnewi oli-ekpe custom that deprived a woman of rights in her late husband's estate."
+  }
+]
