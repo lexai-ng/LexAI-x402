@@ -1,3 +1,4 @@
+import dns from "node:dns"; dns.setDefaultResultOrder("ipv4first");
 import { base58 } from "@scure/base";
 import { createKeyPairSignerFromBytes } from "@solana/kit";
 import { x402Client, wrapFetchWithPayment } from "@x402/fetch";
