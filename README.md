@@ -6,7 +6,7 @@ Built for the Encode Club x Solana x402 hackathon (October 2026) by Nnadozie ([l
 
 ## Demo
 
-- Demo video: coming soon
+- Demo video: https://youtu.be/_4HzPFnC0l4
 - Example payment on Solana devnet:   - All payments received by the LexAI wallet on Solana devnet: https://explorer.solana.com/address/Hk2BDrmc2Js39u9uumjnQk44S1M4ewD85kP4fMcDopuw?cluster=devnet 
 - Code: the `x402/` folder
 
