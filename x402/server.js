@@ -84,7 +84,7 @@ app.get("/search", (req, res) => {
   });
 });
 
-app.listen(4021, "0.0.0.0", (err) => {
+app.listen(process.env.PORT || 4021, "0.0.0.0", (err) => {
   if (err) {
     console.error("Could not start server:", err.message);
     process.exit(1);
