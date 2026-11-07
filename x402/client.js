@@ -26,7 +26,7 @@ client.registerPolicy((_version, requirements) =>
 client.register("solana:*", new ExactSvmScheme(signer));
 
 const fetchWithPayment = wrapFetchWithPayment(fetch, client);
-const url = `http://127.0.0.1:4021/search?q=${encodeURIComponent(query)}`;
+const url = `${process.env.API_URL || "http://127.0.0.1:4021"}/search?q=${encodeURIComponent(query)}`;
 
 let response;
 try {
