@@ -26,6 +26,20 @@ Client <- 402 + payment terms      <- LexAI server
 Client -> retry + signed payment   -> LexAI server -> facilitator -> Solana
 Client <- 200 + results + receipt  <- LexAI server
 ```
+## Failed payments and error handling
+
+Tested against the live API (https://lexai-x402.onrender.com):
+
+| Case | What happens | Tested |
+|---|---|---|
+| No payment | Server returns `402 Payment Required` with an empty JSON body; payment requirements are in the `PAYMENT-REQUIRED` header. No case data is returned. | Yes |
+| Missing or too-short query | Server returns `400` with a JSON error before any payment is requested. | Yes |
+| Payer wallet with no funds | Payment is rejected, the server answers `402` again, the client prints `Request failed with status 402`, and no results are returned. Nothing is paid. | Yes, with a throwaway unfunded wallet |
+| Service unreachable or network failure | The client catches the error, prints `Payment could not be completed: fetch failed` with a checklist, and exits without results. | Yes |
+| Wrong asset, wrong network, or price above the cap | The client refuses to sign: it only accepts devnet USDC and at most 0.01 USDC per request. | Enforced in `client.js`; not separately demonstrated |
+| Underpayment and duplicate payment | Not yet tested separately. In the x402 `exact` scheme the facilitator verifies that the payment matches the stated requirements. | Planned |
+
+Note: the free host sleeps when idle, so the first request after a pause can take about a minute.
 
 ## Why Solana
 
