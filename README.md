@@ -7,7 +7,7 @@ Built for the Encode Club x Solana x402 hackathon (October 2026) by Nnadozie ([l
 ## Demo
 
 - Live API (Solana devnet): https://lexai-x402.onrender.com (free hosting: the first request after idle can take about a minute)
-- Demo video: https://youtu.be/_4HzPFnC014
+- Demo video: (https://youtu.be/H8kOi4BotYI)
 - Example payment on Solana devnet, paid against the live API: https://explorer.solana.com/tx/6tVozcZDMqPtzGnRS6fdveKG3gjX7v7EN8QpwhjL7ZqRAHSHhAQ6BcBkK7cxsNc77Aa2q5oqkPa24XTEw2oPgxn?cluster=devnet
 - All payments received by the LexAI wallet: https://explorer.solana.com/address/Hk2BDrmc2Js39u9uumjnQk44S1M4ewD85kP4fMcDopuw?cluster=devnet
 - Code: the `x402/` folder
